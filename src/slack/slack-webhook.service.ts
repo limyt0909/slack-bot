@@ -33,7 +33,4 @@ export class SlackWebhookService {
   async sendEvent(message: string) {
     this.send('channel1', message);
   }
-  async sendError(message: string) {
-    this.send('channel2', message);
-  }
 }
