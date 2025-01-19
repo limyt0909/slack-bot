@@ -8,6 +8,7 @@ import { IncomingWebhook } from '@slack/webhook';
 @Injectable()
 export class SlackWebhookService {
   private async _send(url: string, message: string) {
+    console.log(url, message);
     if (process.env.NODE_ENV === 'local') {
       console.log('슬랙메시지: ', message);
       return;
@@ -24,10 +25,7 @@ export class SlackWebhookService {
     }
   }
   async send(type: SlackWebhookEndpointType, message: string) {
-    this._send(
-      SLACK_WEBHOOK_ENDPOINTS[type],
-      `${process.env.NODE_ENV} ${message}`,
-    );
+    this._send(SLACK_WEBHOOK_ENDPOINTS[type], `${message}`);
   }
 
   async sendEvent(message: string) {
