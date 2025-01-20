@@ -25,7 +25,7 @@ export class SlackWebhookService {
     }
   }
   async send(type: SlackWebhookEndpointType, message: string) {
-    this._send(SLACK_WEBHOOK_ENDPOINTS[type], `${message}`);
+    this._send(SLACK_WEBHOOK_ENDPOINTS[type], `<@U055A7CJCUV> ${message}`);
   }
 
   async sendEvent(message: string) {
